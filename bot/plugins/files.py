@@ -2,6 +2,7 @@ from telethon import Button
 from telethon.events import NewMessage
 from telethon.errors import MessageAuthorRequiredError, MessageNotModifiedError, MessageIdInvalidError
 from telethon.tl.custom import Message
+from telethon.sync import TelegramClient
 from secrets import token_hex
 from bot import TelegramBot
 from bot.config import Telegram, Server
@@ -34,21 +35,23 @@ async def user_file_handler(event: NewMessage.Event | Message):
                     Button.url('Get File📁', deep_link),
                     Button.inline('Revoke🗑', f'rm_{message_id}_{secret_code}')
                 ]
-            ]
+            ],
+            parse_mode='Markdown'  # Specify the parse mode here
         )
     else:
-        await event.reply(
-            message=FileLinksText % {'dl_link': dl_link, 'tg_link': tg_link},
-            buttons=[
-                [
-                    Button.url('Download📥', dl_link),
-                    Button.url('Get File📁', deep_link)
-                ],
-                [
-                    Button.inline('Revoke🗑', f'rm_{message_id}_{secret_code}')
-                ]
+    await event.reply(
+        message=FileLinksText % {'dl_link': dl_link, 'tg_link': tg_link},
+        buttons=[
+            [
+                Button.url('Download📥', dl_link),
+                Button.url('Get File📁', deep_link)
+            ],
+            [
+                Button.inline('Revoke🗑', f'rm_{message_id}_{secret_code}')
             ]
-        )
+        ],
+        parse_mode='Markdown'  # Specify the parse mode here
+    )
 
 @TelegramBot.on(NewMessage(incoming=True, func=filter_files, forwards=False))
 @verify_user()
