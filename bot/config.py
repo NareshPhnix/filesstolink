@@ -1,7 +1,7 @@
 from os import environ as env
 
 class Telegram:
-    API_ID = int(env.get("API_ID", )
+    API_ID = int(env.get("API_ID"))
     API_HASH = env.get("API_HASH", "")
     OWNER_ID = int(env.get("OWNER_ID", 2048030675))
     ALLOWED_USER_IDS = env.get("ALLOWED_USER_IDS", "").split()
