@@ -39,19 +39,19 @@ async def user_file_handler(event: NewMessage.Event | Message):
             parse_mode='Markdown'  # Specify the parse mode here
         )
     else:
-    await event.reply(
-        message=FileLinksText % {'dl_link': dl_link, 'tg_link': tg_link},
-        buttons=[
-            [
-                Button.url('Download📥', dl_link),
-                Button.url('Get File📁', deep_link)
+        await event.reply(
+            message=FileLinksText % {'dl_link': dl_link, 'tg_link': tg_link},
+            buttons=[
+                [
+                    Button.url('Download📥', dl_link),
+                    Button.url('Get File📁', deep_link)
+                ],
+                [
+                    Button.inline('Revoke🗑', f'rm_{message_id}_{secret_code}')
+                ]
             ],
-            [
-                Button.inline('Revoke🗑', f'rm_{message_id}_{secret_code}')
-            ]
-        ],
-        parse_mode='Markdown'  # Specify the parse mode here
-    )
+            parse_mode='Markdown'  # Specify the parse mode here
+        )
 
 @TelegramBot.on(NewMessage(incoming=True, func=filter_files, forwards=False))
 @verify_user()
