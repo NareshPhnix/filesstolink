@@ -72,7 +72,7 @@ async def transmit_file(file_id):
 
     return Response(file_generator(), headers=headers, status=206 if range_header else 200)
 
-@bp.route('/stream/<int:file_id>')
+@bp.route('/stre/<int:file_id>')
 async def stream_file(file_id):
     code = request.args.get('code') or abort(401)
 
