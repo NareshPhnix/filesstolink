@@ -37,13 +37,13 @@ MediaLinksText = \
 """
 
 **📥Download Link:**
-`%(dl_link)s`
+<blockquote><code>`%(dl_link)s`</code></blockquote>
 
 **🎞Stream Link:**
-`%(stream_link)s`
+<blockquote><code>`%(stream_link)s`</code></blockquote>
 
 **Telegram File📁:**
-`%(tg_link)s`
+<blockquote><code>`%(tg_link)s`</code></blockquote>
 """
 
 InvalidQueryText = \
