@@ -1,6 +1,6 @@
 WelcomeText = \
 """
-Hi **%(first_name)s**, send me a file or add me as an admin to any channel to instantly generate file links.
+Hi 🤝 **%(first_name)s**, send me a file or add me as an admin to any channel to instantly generate file📁 to links🔗.
 
 Add me to your channel to instantly generate links for any downloadable media. Once received, I will automatically attach appropriate buttons to the post containing the URL. If you want me to ignore a given post, you can insert `#pass` in the post.
 
@@ -27,23 +27,26 @@ UserInfoText = \
 FileLinksText = \
 """
 **📥Download 🔗Link:**
-`%(dl_link)s`
+
+``` %(dl_link)s ```
 
 **Telegram File📁:**
-`%(tg_link)s`
+
+``` %(tg_link)s ```
 """
 
 MediaLinksText = \
 """
 
 **📥Download Link:**
-`%(dl_link)s`
+``` %(dl_link)s ```
 
-**🎞Stream Link:**
-`%(stream_link)s`
+**🖥Stream Link:**
+
+``` %(stream_link)s ```
 
 **Telegram File📁:**
-`%(tg_link)s`
+``` %(tg_link)s ```
 """
 
 InvalidQueryText = \
