@@ -26,7 +26,7 @@ UserInfoText = \
 
 FileLinksText = \
 """
-**📥Download 🔗Link:**
+**📥 Download 🔗Link:**
 
 ``` %(dl_link)s ```
 
