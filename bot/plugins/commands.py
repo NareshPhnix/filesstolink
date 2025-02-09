@@ -13,7 +13,7 @@ async def welcome(event: NewMessage.Event | Message):
         message=WelcomeText % {'first_name': event.sender.first_name},
         buttons=[
             [
-                Button.url('Add to Channel',f'https://t.me/{filetolinkks}?startchannel&admin=post_messages+edit_messages+delete_messages')
+                Button.url('Add to Channel',f'https://t.me/{telegram.BOTUSERNAME}?startchannel&admin=post_messages+edit_messages+delete_messages')
             ]
         ]
     )
