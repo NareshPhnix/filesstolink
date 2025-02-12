@@ -1,6 +1,8 @@
 import os
 from os import environ as env
 
+id_pattern = re.compile(r'^.\d+$')
+
 class Telegram:
     API_ID = int(env.get("API_ID", "28192191"))
     API_HASH = env.get("API_HASH", "663164abd732848a90e76e25cb9cf54a")
