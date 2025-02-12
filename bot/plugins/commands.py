@@ -13,7 +13,7 @@ async def welcome(event: NewMessage.Event | Message):
         message=WelcomeText % {'first_name': event.sender.first_name},
         buttons=[
             [
-                Button.url('Add to Channel',f'https://t.me/joinchat/-1002231458694}?startchannel&admin=post_messages+edit_messages+delete_messages')
+                Button.url('Add to Channel',f'https://t.me/joinchat/-1002231458694')
             ]
         ]
     )
