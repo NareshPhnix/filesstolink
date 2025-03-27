@@ -8,7 +8,7 @@ from bot.modules.static import *
 from bot.modules.decorators import verify_user
 
 # Your channel username (without @)
-CHANNEL_USERNAME = "https://t.me/filetolinkks"
+CHANNEL_USERNAME = "filetolinkks"
 
 @TelegramBot.on(NewMessage(incoming=True, pattern=r'^/start$'))
 @verify_user(private=True)
