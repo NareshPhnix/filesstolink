@@ -14,10 +14,14 @@ async def welcome(event: NewMessage.Event | Message):
 
     if AUTH_CHANNEL:
         try:
-            # Check if user is a member of the AUTH_CHANNEL
-            participant = await TelegramBot.get_participant(AUTH_CHANNEL, user_id)
+            # Fetch all participants of the AUTH_CHANNEL
+            participants = await TelegramBot.get_participants(AUTH_CHANNEL)
 
-            # If user is a member, send the welcome message
+            # Check if the user is in the list
+            if user_id not in [p.id for p in participants]:
+                raise UserNotParticipantError
+
+            # If the user is a member, send the welcome message
             await event.reply(
                 message=WelcomeText % {'first_name': event.sender.first_name},
                 buttons=[
@@ -27,7 +31,7 @@ async def welcome(event: NewMessage.Event | Message):
             return  # Stop execution if user is already in channel
 
         except UserNotParticipantError:
-            # If user is not a member, send a join message
+            # If the user is not a member, send a join message
             await event.reply(
                 "🚀 To use this bot, please join our channel first:\n\n"
                 f"👉 [Join Now](https://t.me/{AUTH_CHANNEL})",
