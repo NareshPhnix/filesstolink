@@ -25,7 +25,7 @@ async def welcome(event: NewMessage.Event | Message):
             await event.reply(
                 message=WelcomeText % {'first_name': event.sender.first_name},
                 buttons=[
-                    [Button.url('Add to Channel', f'https://t.me/{Telegram.BOT_USERNAME}')]
+                    [Button.url('Add to Channel', f'https://t.me/{BOT_USERNAME}')]
                 ]
             )
             return  # Stop execution if user is already in channel
@@ -45,6 +45,6 @@ async def welcome(event: NewMessage.Event | Message):
     await event.reply(
         message=WelcomeText % {'first_name': event.sender.first_name},
         buttons=[
-            [Button.url('Add to Channel', f'https://t.me/{Telegram.BOT_USERNAME}')]
+            [Button.url('Add to Channel', f'https://t.me/{BOT_USERNAME}')]
         ]
     )
